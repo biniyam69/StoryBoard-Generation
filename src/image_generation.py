@@ -10,8 +10,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 model_id = "stabilityai/stable-diffusion-2"
 device = 'cuda:0'
 scheduler = EulerDiscreteScheduler.from_pretrained(model_id, subfolder='scheduler')
-text2imgpipe = StableDiffusionPipeline.from_pretrained(model_id, scheduler=scheduler, torch_dtype=torch.float16).to(device)
-img2imgpipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id, torch_dtype=torch.float16).to(device)
+text2img_pipe = StableDiffusionPipeline.from_pretrained(model_id, scheduler=scheduler, torch_dtype=torch.float16).to(device)
+img2img_pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id, torch_dtype=torch.float16).to(device)
 bert_tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 bert_model = AutoModel.from_pretrained("bert-base-uncased").to(device)
 
