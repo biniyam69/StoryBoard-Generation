@@ -8,10 +8,15 @@ import replicate
 from PIL import Image
 import requests
 from pydantic import HttpUrl
+from collections import Union
+
+
 
 # Configurations
-os.environ["REPLICATE_API_TOKEN"] = "r8_JzCyIuVNcwnEosREvjvsc0FrnwqHaDS2Hadk1"
+os.environ["REPLICATE_API_TOKEN"] = "r8_UbIKKDB3ZgnPyZWGCRWv8janUuULY6C2mIzxQ"
 logging.basicConfig(level=logging.INFO)
+
+
 
 
 
@@ -60,6 +65,14 @@ class ImageGenerater:
         except Exception as e:
             logging.error(f"Failed to generate image: {e}")
             return None
+        
+    img_path = generated_images
+        
+    @staticmethod
+    def generate_from_image(prompt: str, performance_selection: Literal['Speed', 'Quality', 'Extreme Speed'] = "Extreme Speed", 
+                            aspect_ratios_selection: str = "1024,1024",image_seed: int = 1234, sharpness: int = 2, cn_img1: str =  "Img", cn_type1= "ImagePrompt", 
+                            ):
+        pass
         
     @staticmethod
     def decode_image(base64_data: str) -> Optional[Image.Image]:

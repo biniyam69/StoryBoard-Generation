@@ -6,6 +6,9 @@ from diffusers import StableDiffusionPipeline, EulerDiscreteScheduler, StableDif
 import matplotlib.pyplot as plt
 from transformers import AutoTokenizer, AutoModel
 from sklearn.metrics.pairwise import cosine_similarity
+import replicate
+from typing import Literal, Optional, Tuple
+
 
 model_id = "stabilityai/stable-diffusion-2"
 device = 'cuda:0'
@@ -15,9 +18,19 @@ img2img_pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id, torch_dt
 bert_tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 bert_model = AutoModel.from_pretrained("bert-base-uncased").to(device)
 
-def generate_images(df, out_dir):
-    for index, row in df.iterrows():
-        pass
+
+
+def gen_img2img(prompt: str, performance_selection: Literal['Speed', 'Quality', 'Extreme Speed'] = "Extreme Speed", 
+                            aspect_ratios_selection: str = "1024,1024",image_seed: int = 1234, sharpness: int = 2, cn_img1: str =  "Img", cn_type1= "ImagePrompt", 
+                            ):
+    pass
+
+img2img_replicate = gen_img2img()
+    
+
+# def generate_images(df, out_dir):
+#     for index, row in df.iterrows():
+#         pass
 
 # prefix = "Generate an artistic interpretation of the text "
 # prefix = ""
