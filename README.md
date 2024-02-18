@@ -7,10 +7,12 @@
 This repository contains the code and implementation for an innovative machine learning framework developed to automate the process of transforming textual descriptions of advertisements into visually compelling storyboards. The solution leverages advanced techniques in machine learning, natural language processing, and computer vision to bridge the gap between textual concepts and visual storytelling in digital advertising.
 
 ---
+### Lego City Ad
 
 ![Screenshot](screenshots/lego.png?raw=true "Lego City Ad")
 
 ---
+### Travel Ad
 
 ![Screenshot](screenshots/travel.png?raw=true "Travel Ad")
 
