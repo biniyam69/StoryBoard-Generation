@@ -8,7 +8,7 @@ This repository contains the code and implementation for an innovative machine l
 
 ---
 
-![Screenshot](screenshots/Screenshot from 2024-02-18 00-34-02.png?raw=true "Travel Ad")
+![Screenshot](screenshots/lego.png?raw=true "Lego City Ad")
 
 ---
 
