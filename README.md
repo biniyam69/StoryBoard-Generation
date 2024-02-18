@@ -102,7 +102,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ### Acknowledgments
 
-We would like to thank the Adludio and Ten Academy team for their support and guidance throughout this project. Special thanks to the open-source community for providing valuable resources and tools for advancing machine learning and advertising technologies.
+I would like to thank the Adludio and Ten Academy team for their support and guidance throughout this project. Special thanks to the open-source community for providing these amazing diffusion models and tools.
 
 ---
 
