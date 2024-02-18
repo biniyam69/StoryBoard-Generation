@@ -17,16 +17,7 @@ text2img_pipe = StableDiffusionPipeline.from_pretrained(model_id, scheduler=sche
 img2img_pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id, torch_dtype=torch.float16).to(device)
 bert_tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 bert_model = AutoModel.from_pretrained("bert-base-uncased").to(device)
-
-
-
-def gen_img2img(prompt: str, performance_selection: Literal['Speed', 'Quality', 'Extreme Speed'] = "Extreme Speed", 
-                            aspect_ratios_selection: str = "1024,1024",image_seed: int = 1234, sharpness: int = 2, cn_img1: str =  "Img", cn_type1= "ImagePrompt", 
-                            ):
-    pass
-
-img2img_replicate = gen_img2img()
-    
+frame_prompts = [] #Prompts that are summarized from the json of the concept. This is used to generate the images using the proposed method.    
 
 # def generate_images(df, out_dir):
 #     for index, row in df.iterrows():
@@ -72,6 +63,13 @@ def generate_images_baseline(prompts, strength, guidance_scale, prefix=""):
             generated_images.append(images[0])
     return generated_images
 
+
+
+# Below is the code for the proposed method, which calculates the similarity between the current prompt and the previous prompts and uses the most similar prompt to generate the next image.
+# The similarity is calculated using the cosine similarity between the embeddings of the prompts, which are obtained using the BERT model.
+# The most similar prompt is then used to generate the next image using the stable diffusion model.
+
+
 def bert_sentence_embedding(sentence):
     tokens = bert_tokenizer(sentence, return_tensors="pt")
     with torch.no_grad():
@@ -96,7 +94,7 @@ def generate_images_proposed(story, strength, guidance_scale, prefix=""):
     # print(init_prompt)
     init_image = text2img_pipe(prefix+init_prompt).images[0]
     generated_images = [init_image]
-    for idx, prompt in enumerate(story[1:]):
+    for idx, prompt in enumerate(frame_prompts[1:]):
         most_similar_index = findSimilarPromptBert(prompt, story[:idx+1])
         print("CURRENT PROMPT:",prompt)
         print("SIMILAR PROMPT", story[most_similar_index])
