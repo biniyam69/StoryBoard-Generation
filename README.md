@@ -12,6 +12,11 @@ This repository contains the code and implementation for an innovative machine l
 
 ---
 
+![Screenshot](screenshots/travel.png?raw=true "Travel Ad")
+
+
+---
+
 ### Key Features
 
 - Automatic generation of visual and textual assets based on provided advertisement concepts.
