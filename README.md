@@ -7,7 +7,7 @@
 This repository contains the code and implementation for an innovative machine learning framework developed to automate the process of transforming textual descriptions of advertisements into visually compelling storyboards. The solution leverages advanced techniques in machine learning, natural language processing, and computer vision to bridge the gap between textual concepts and visual storytelling in digital advertising.
 
 ---
-![Alt text](/screenshots/Screenshot from 2024-02-18 00-34-02.png?raw=true "Travel Ad")
+![Alt text](screenshots/Screenshot from 2024-02-18 00-34-02.png?raw=true "Travel Ad")
 ---
 
 ### Key Features
